@@ -1,55 +1,65 @@
 package assignment;
-
 import java.util.Random;
 import java.util.Scanner;
 
 public class RockPaperScissors {
+
+
     public static void main(String[] args) {
-        String rock;
-        String paper;
-        String scissors;
-        String player1;
-        Random rand = new Random();
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Please enter Rock/Paper/Scissors");
+        String player;
+        String computer = "";
+        int computerInt;
+        String response;
 
 
-        player1 = input.next();
-        String com;
-        int myList = rand.nextInt(3) + 1;
-        if (myList == 1) {
-            com = "rock";
-        } else if (myList == 2) {
-            com = "paper";
-        } else {
-            com = "scissors";
-        }
+        Scanner scan = new Scanner(System.in);
+        Random generator = new Random();
+            System.out.println("please enter a move\n" + "Rock = R, Paper" +
+                    "= P, and Scissors = S.");
 
-        if (player1 == com) {
-            System.out.println(" It's a tie");
-        } else if (player1 == "rock") {
-            if (com == "scissors") {
-                System.out.println("PLayer One Wins!");
-            } else if (com == "paper") {
-                System.out.println("Computer Wins!");
-            }
-        }
-        else if (player1 == "paper") {
-            if (com == "rock")
-                System.out.println("PLayer One Wins!");
-        }
-            else if()
-        }
-        elif Player1 == "scissors":
-        if com == "paper":
-        print("PLayer One Wins")
-        player_Score += 1
-        elif com == "rock":
-        print("Computer Wins!")
-        computer_Score += 1
-    else:
-        print("Please Type a Valid Move")
+            System.out.println();
+            computerInt = generator.nextInt(3) + 1;
 
+            if (computerInt == 1)
+                computer = "R";
+            else if (computerInt == 2)
+                computer = "P";
+            else if (computerInt == 3)
+                computer = "S";
+
+            System.out.println("Enter your move: ");
+            player = scan.next();
+            player = player.toUpperCase();
+            System.out.println("Computer's move is:\n " + computer);
+
+
+            if (player.equals(computer))
+                System.out.println("It's a tie!");
+            else if (player.equals("R")) {
+                if (computer.equals("S")) {
+                    System.out.println("Rock crushes scissors. You win!!");
+
+                } else if (computer.equals("P")) {
+                    System.out.println("Paper eats rock. You lose!!");
+
+                }
+            } else if (player.equals("P")) {
+                if (computer.equals("S")) {
+                    System.out.println("Scissor cuts paper. You lose!!");
+
+                } else if (computer.equals("R")) {
+                    System.out.println("Paper eats rock. You win!!");
+
+                }
+            } else if (player.equals("S")) {
+                if (computer.equals("P")) {
+                    System.out.println("Scissor cuts paper. You win!!");
+
+                } else if (computer.equals("R")) {
+                    System.out.println("Rock breaks scissors. You lose!!");
+
+                }
+            } else
+                System.out.println("Invalid user input.");
     }
 }
